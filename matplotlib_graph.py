@@ -35,7 +35,7 @@ def tracer_point(graphe, x, y, figure=None):
     # Afficher l'image de fond avec pour axe x et y de 0 à 7.5
     ax.imshow(fond_img, extent=[0, 7.5, 0, 7.5])
 
-    # Tracer les points
+    # Tracer les points avec leurs noms personnalisés
     for nom, coordonnees in points.items():
         ax.scatter(coordonnees[0], coordonnees[1], label=noms_points[nom])
 

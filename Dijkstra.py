@@ -1,8 +1,4 @@
 """
-Graphe_DijkstraVilles_eleve
-
-@author:
-    
 Fonction Dijkstra(s, v)
     distance <- {sommet: infini pour sommet dans graphe}
     distance[s] <- 0

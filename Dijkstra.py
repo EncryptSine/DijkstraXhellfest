@@ -29,10 +29,6 @@ class GrapheHelfest:
     def sommet(self, sommet1):
         if sommet1 not in self.graphe.keys():
             self.graphe[sommet1] = {}
-            
-#Retourne le degré du sommet donné.
-    def degre(self, sommet):
-        return len(self.graphe[sommet])
     
 #Ajoute une arête entre deux sommets avec un poids spécifié.
 
@@ -50,6 +46,7 @@ class GrapheHelfest:
 #Retourne l'ordre du graphe (le nombre de sommets).
     def ordre(self):
         return len(self.graphe)
+    
 #Affiche la liste des sommets avec leurs voisins et les poids des arêtes.
     def liste(self):
         for sommet in self.graphe:
@@ -78,24 +75,46 @@ class GrapheHelfest:
             
 #Applique l'algorithme de Dijkstra pour trouver le chemin le plus court entre les sommets s et v. Retourne la distance et le chemin.
     def dijkstra(self, s, v):
+        """
+        Applique l'algorithme de Dijkstra pour trouver le chemin le plus court entre les sommets s et v.
+        Retourne la distance et le chemin.
+
+        Args:
+            s: Le sommet de départ.
+            v: Le sommet d'arrivée.
+
+        Returns:
+        tuple: La distance minimale et le chemin.
+        """
+        # Initialisation des distances à l'infini pour tous les sommets sauf le sommet de départ s.
         distance = {sommet: float('inf') for sommet in self.graphe}
         distance[s] = 0
+
+        # Initialisation du dictionnaire des prédécesseurs.
         predesseur = {}
 
-        sommerts_non_traites = list(self.graphe.keys())
+        # Liste des sommets non encore traités.
+        sommets_non_traites = list(self.graphe.keys())
 
-        while sommerts_non_traites:
-            u = min(sommerts_non_traites, key=lambda sommet: distance[sommet])
-            sommerts_non_traites.remove(u)
+        # Boucle principale de l'algorithme de Dijkstra.
+        while sommets_non_traites:
+            # Sélectionne le sommet u avec la plus petite distance parmi les sommets non traités.
+            u = min(sommets_non_traites, key=lambda sommet: distance[sommet])
+            # Retire u de la liste des sommets non traités.
+            sommets_non_traites.remove(u)
 
+            # Parcourt tous les voisins de u.
             for voisin in self.graphe[u]:
+                # Calcule la distance jusqu'à ce voisin en passant par u.
                 poids_uv = self.graphe[u][voisin]
                 dist = distance[u] + poids_uv
 
+                # Met à jour la distance si une distance plus courte est trouvée.
                 if dist < distance[voisin]:
                     distance[voisin] = dist
                     predesseur[voisin] = u
-        
+
+        # Reconstruction du chemin le plus court à partir des prédécesseurs.
         chemin = []
         p = v
         while p != s:
@@ -103,10 +122,13 @@ class GrapheHelfest:
             p = predesseur[p]
         chemin.insert(0, s)
 
+        # Retourne la distance minimale et le chemin.
         return distance[v], chemin
+
 
 # Exemple d'utilisation des villes
 graphe = GrapheHelfest()
+
 graphe.sommet('A')
 graphe.sommet('B')
 graphe.sommet('C')
@@ -124,3 +146,5 @@ graphe.arete('C', 'D', 200)
 graphe.arete('D', 'F', 1400)
 graphe.arete('D', 'E', 360)
 graphe.arete('E', 'F', 1380)
+
+print(graphe.matrice())

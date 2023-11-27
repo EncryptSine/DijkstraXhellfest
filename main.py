@@ -9,6 +9,7 @@ from interface import GUI  # Importation de la classe GUI
 import tkinter as tk  # Importation de la bibliothèque tkinter pour l'interface graphique
 
 if __name__ == '__main__':
+
     # Création de la fenêtre principale Tkinter
     root = tk.Tk()
 

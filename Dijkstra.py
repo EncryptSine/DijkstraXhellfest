@@ -122,7 +122,7 @@ class GrapheHelfest:
         return distance[v], chemin
 
 
-# Exemple d'utilisation des villes
+# Exemple d'utilisation des scenes du Hellfest
 graphe = GrapheHelfest()
 
 graphe.sommet('A')
@@ -131,7 +131,7 @@ graphe.sommet('C')
 graphe.sommet('D')
 graphe.sommet('E')
 graphe.sommet('F')
-## Ajout d'arêtes avec des poids représentant les distances entre les villes
+## Ajout d'arêtes avec des poids représentant les distances entre les scenes
 graphe.arete('A', 'B', 200)
 graphe.arete('A', 'C', 680)
 graphe.arete('B', 'C', 860)

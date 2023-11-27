@@ -42,10 +42,6 @@ class GrapheHelfest:
         self.graphe[sommet1][sommet2] = poids
         if self.NO:
             self.graphe[sommet2][sommet1] = poids
-
-#Retourne l'ordre du graphe (le nombre de sommets).
-    def ordre(self):
-        return len(self.graphe)
     
 #Affiche la liste des sommets avec leurs voisins et les poids des arêtes.
     def liste(self):

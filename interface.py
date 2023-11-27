@@ -73,7 +73,7 @@ class GUI:
         nom_depart = noms_points[depart]
         nom_arrivee = noms_points[arrivee]
 
-        resultat_texte = f"Distance minimale entre '{nom_depart}' et '{nom_arrivee}': {distance}\n"
+        resultat_texte = f"Distance minimale entre '{nom_depart}' et '{nom_arrivee}': {distance} mètres\n"
         resultat_texte += f"Chemin le plus court : {' -> '.join([noms_points[point] for point in chemin])}"
 
         # Affichage des résultats dans l'interface graphique

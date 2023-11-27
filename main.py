@@ -6,7 +6,7 @@ une interface utilisateur permettant de calculer le chemin le plus court entre d
 """
 
 from interface import GUI  # Importation de la classe GUI
-import tkinter as tk  # Importation de la bibliothèque tkinter pour l'interface graphique
+import tkinter as tk  # Importation de la bibliothèque tkinter pour le GUI
 
 if __name__ == '__main__':
 
